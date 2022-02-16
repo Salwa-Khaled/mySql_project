@@ -1,0 +1,125 @@
+create database books_website
+use books_website
+create table Author(
+ id int primary key identity(1,1), 
+ name varchar(30) not null,
+  username varchar(20),
+   pass_word int , 
+   nationality varchar(20))
+  
+   select * from author
+
+ Create table Books
+    (id_number int  primary key identity(1,1), 
+   title varchar(40) not null, 
+   edition_date date, 
+   submission_date date, 
+   copyright_info varchar(30),
+   puplication_date date )
+  
+   select * from books
+
+    Create table Author_Authors_book (Book_id int  
+	 FOREIGN KEY REFERENCES books(id_number) ,  
+	  Author_id int 
+	  FOREIGN KEY REFERENCES Author(id) , 
+	  constraint pk primary key (Book_id,Author_id) )
+
+	  
+   select * from Author_Authors_book
+
+
+   Create table Customer
+    (  cridetcard_num int primary key, username varchar(30) not null, 
+   password varchar(10)  
+  )
+
+
+  
+   select * from Customer
+ 
+   Create table buy 
+    (cridt_num  int  foreign key references customer(cridetcard_num) ,
+	 book_id  int  FOREIGN KEY REFERENCES books (id_number) ,
+	 Purchase_date date   ,
+	 copies_number int , price money 
+	constraint pkb primary key (Book_id,cridt_num) )
+
+	select * from buy
+
+
+	  Insert into Author values 
+	  ( 'Ibrahim Alfaqih' , 'your words make you', 654321,' Egyptain')
+	  Insert into Author values
+	   ( 'William  Shaksbeer ' , 'stories writer ', 581111, 'American' )
+	   Insert into Author values 
+	   ( 'Mohammed Ali  ' , 'writing lover  ', 242424, 'Yemeni' )
+	   Insert into Author values
+	    ( 'John Brown  ' , 'writer ', 210004, 'British') 
+		   Insert into Author values
+	    ( 'Asma Nasar  ' , 'history disecoverd ', 68948, 'Qatry') 
+		select * from Author
+		select * from Books
+
+		Insert into Books values 
+		( 'Between fact and theories', getdate()-2, getdate() ,'@Mohammed.2017' ,'4/5/2019' )
+	   select * from book
+	   Insert into Books values 
+	   ( 'How to become a great person in few days', ' 12 /03 / 2013' , '12 /09 /2015','@essos.2013' ,'3/8/2016' )
+	   Insert into Books values
+	    ('Moving into a new world ',' 12 /03 / 2000' , '12 /09 /2000','@book.2010' ,'3/8/2004' )
+		 Insert into Books values
+	    ('short stories ',' 12 /03/ 2018' , '12 /01/2019','@funs.2017' ,'2/3/2019' )
+
+		select * from Books
+		select * from Author_Authors_book
+
+		insert into Author_Authors_book values (3,3)
+		insert into Author_Authors_book values (5,1)
+		insert into Author_Authors_book values (5,2)
+		insert into Author_Authors_book values (2,4)
+		 insert into Author_Authors_book values (1,4)
+		 insert into Author_Authors_book values (1,5)
+
+
+
+
+		insert into Customer values
+		(350,'Ali','pass')
+		insert into Customer values
+		(5678,'Mohammed','hello')
+		insert into Customer values
+		(211,'Nasim','235')
+		insert into Customer values
+		(64,'Hassan','commo')
+		select * from Customer
+		
+
+		
+	select * from buy
+		
+		insert into buy  values (64,3,'4/8/2017',3,$45)
+		insert into buy values (211,2,'4/8/2017',2,$38)
+		insert into buy values (5678,5,'4/3/2019',26,$50)
+		
+		insert into buy values (350,5,'5/9/2018',8,$50)
+
+
+					
+	  select * from Author_Authors_book
+	  select * from author
+	  select * from Books
+	  select * from Customer 
+	  select * from buy
+	  select name , username , id_number from Author join books on  id= id_number  
+	 
+	   
+	   
+	  
+	
+   
+
+  
+   
+
+ 
